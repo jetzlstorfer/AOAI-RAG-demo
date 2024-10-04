@@ -43,8 +43,10 @@ rag_chain = (
 
 demo = gr.Interface(
     fn=open_ai_prompt, 
-    inputs="text", 
-    outputs="text",
+    inputs=[gr.Textbox(lines=5, label="Prompt")], 
+    outputs=[gr.Textbox(lines=5, label="Output")],
+    title="RAG Demo",
+    description="A demo of the Retrieval Augmented Generation model",
     allow_flagging=False)
     
 demo.launch( server_name="0.0.0.0", server_port=8080 )
