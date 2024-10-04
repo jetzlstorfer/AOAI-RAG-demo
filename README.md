@@ -1,19 +1,13 @@
-# Demo for Microsoft IGNITE 2024
+# Demo for showcasing RAG with Azure OpenAI services
 
 
 
-## Setup & Prerequisits
+## Setup & Prerequisites
 
-### Cluster
 
-- Azure Red Hat OpenShift (ARO) Cluster
-- Pull secret from your Red Hat account
-  - Add it in the Azure Portal when you are creating the cluster
-  - Or [Add or update your Red Hat pull secret on an Azure Red Hat OpenShift 4 cluster](https://learn.microsoft.com/en-us/azure/openshift/howto-add-update-pull-secret)
-  
 ### Azure OpenAI Models
 
-Tested with `gpt-35-turbo` and `text-embedding-ada-002`.
+Tested with Azure OpenAI models `gpt-35-turbo` and `text-embedding-ada-002`.
 
 Name of models in the code (can be changed, of course):
 - `gpt-35-turbo`
@@ -21,11 +15,24 @@ Name of models in the code (can be changed, of course):
 
 ### Environment variables
 
-Add them in your ARO cluster
+Populate a `.env` file with the following variables:
 
-- `AZURE_OPENAI_API_KEY`
-- `AZURE_OPENAI_ENDPOINT`
+```bash	
+AZURE_OPENAI_API_KEY=
+AZURE_OPENAI_ENDPOINT=
+```
+
+### Run it locally via Docker
+
+```bash
+docker build -t rag-demo .
+docker run --env-file ./.env -p 8080:8080 rag-demo
+```
 
 ### Demo run
 
-![](./assets/demo1.png)
+Open a browser and navigate to http://localhost:8080/
+
+![demo run](./assets/demo1.png)
+
+
