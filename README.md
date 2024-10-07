@@ -36,3 +36,6 @@ Open a browser and navigate to http://localhost:8080/
 ![demo run](./assets/demo1.png)
 
 
+### Acknowledgements
+
+Thanks to [Philipp Bergsmann](https://github.com/phbergsmann/ms-ignite-2024-vie) for the initial implementation of the RAG model with Azure OpenAI services.
