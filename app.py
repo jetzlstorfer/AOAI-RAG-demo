@@ -5,15 +5,21 @@ from langchain_openai import AzureChatOpenAI, AzureOpenAIEmbeddings
 
 import bs4
 from langchain import hub
-from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.document_loaders import PyPDFLoader, WebBaseLoader
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.document_loaders import PyPDFLoader
 
-loader = WebBaseLoader(
-    web_paths=("https://pulse.microsoft.com/de-at/microsoft-ignite-austria-session-catalog/",)
+# loader = WebBaseLoader(
+#     web_paths=("https://pulse.microsoft.com/de-at/microsoft-ignite-austria-session-catalog/",)
+# )
+loader = PyPDFLoader(
+    "https://info.microsoft.com/rs/157-GQE-382/images/DE-IPVNT-SlideDeck-SREVM49561.pdf?version=0"
 )
+ 
+
 docs = loader.load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
