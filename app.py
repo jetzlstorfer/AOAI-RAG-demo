@@ -1,20 +1,14 @@
 import gradio as gr
-
+from langchain import hub
 from langchain_core.messages import HumanMessage
 from langchain_openai import AzureChatOpenAI, AzureOpenAIEmbeddings
-
-import bs4
-from langchain import hub
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 
-# loader = WebBaseLoader(
-#     web_paths=("https://pulse.microsoft.com/de-at/microsoft-ignite-austria-session-catalog/",)
-# )
 loader = PyPDFLoader("https://info.microsoft.com/rs/157-GQE-382/images/DE-IPVNT-SlideDeck-SREVM49561.pdf?version=0")
  
 docs = loader.load()
@@ -49,7 +43,7 @@ demo = gr.Interface(
     inputs=[gr.Textbox(lines=5, label="Prompt")], 
     outputs=[gr.Textbox(lines=5, label="Output")],
     title="RAG Demo",
-    description="A demo of the Retrieval Augmented Generation model",
-    allow_flagging=False)
+    description="A demo of the Retrieval Augmented Generation model for Microsoft AI Tour Vienna 2024",
+    flagging_mode="auto")
     
 demo.launch( server_name="0.0.0.0", server_port=8080 )

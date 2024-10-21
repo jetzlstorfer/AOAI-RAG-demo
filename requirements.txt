@@ -1,8 +1,7 @@
 gradio
 langchain
-langchain_openai
+langchain-openai
 langchain-community
 langchainhub
 chromadb
-bs4
 pypdf
