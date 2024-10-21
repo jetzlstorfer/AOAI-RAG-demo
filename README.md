@@ -33,6 +33,10 @@ docker run --env-file ./.env -p 8080:8080 rag-demo
 
 Open a browser and navigate to http://localhost:8080/
 
+#### Example demo run
+
+Ask the question: `Will there be drinks at the event?` and see the response 😀
+
 ![demo run](./assets/demo1.png)
 
 
